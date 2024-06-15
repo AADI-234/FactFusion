@@ -18,7 +18,7 @@ FactFusion is designed to automate the process of verifying factual information.
     - [Installation with poetry (option 2)](#installation-with-poetry-option-2)
   - [Configure API Keys](#configure-api-keys)
     - [Environment Variables](#environment-variables)
-    - [Configuration Files](#configuration-files(required-if-web-enivronment-is-used))
+    - [Configuration Files](#configuration-files-required-if-web-enivronment-is-used)
     - [Additional API Configurations](#additional-api-configurations)
   - [Basic Usage](#basic-usage)
     - [Used as a Web App](#used-as-a-web-app)
@@ -28,7 +28,7 @@ FactFusion is designed to automate the process of verifying factual information.
     - [Multimodality](#multimodality)
     - [Customized Prompts](#customized-prompts)
     - [Switch Between Models](#switch-between-models)
-  - [Highly Recommended](#highly-recommended)
+  - [Highly Recommended](#highly-recommended-groq-to-openai)
 
 ## Installation
 

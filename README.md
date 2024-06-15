@@ -64,7 +64,7 @@ API keys can be configured from both **Environment Variables** and **Configurati
 Specifically, the tool initialization loads API keys from environment variables or config file, with config file taking precedence. Related implementations can be seen from `factcheck/utils/api_config.py`.
 
 ### Environment Variables
-Example: set essential API key to the environment in command prompt
+Example: set essential API key to the environment in command prompt  (you can copy the GROQ and SERPER api keys from FactFusion -> factcheck -> config -> api_config.yaml which are necessary for functioning)
 ```cmd
 set SERPER_API_KEY=... # this is required for all tasks
 set GROQ_API_KEY=... # this is required for all tasks   

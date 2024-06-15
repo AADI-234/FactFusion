@@ -36,12 +36,11 @@ FactFusion is designed to automate the process of verifying factual information.
 git clone https://github.com/AADI-234/FactFusion.git
 cd FactFusion
 ```
-### Create the Environment
+### Create and Load the Environment
 
 ```cmd
 python -m venv myenv
 myenv\Scripts\activate
-pip install -r requirements.txt
 ```
 
 ### Installation with pip (option 1)

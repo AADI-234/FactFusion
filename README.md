@@ -1,6 +1,6 @@
 <div align="center">
   <br />
-      <img alt="FactFusion Logo" src="./assets/logo.jpg" alt="FactFusion Logo" width="50%" height="auto">
+      <img alt="FactFusion Logo" src="./assets/logo.jpg" alt="FactFusion Logo" width="85%" height="auto">
   <br />
 </div>
 

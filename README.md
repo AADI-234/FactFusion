@@ -12,46 +12,45 @@ FactFusion is designed to automate the process of verifying factual information.
 
 # Quick Start
 
-- [Quick Start](#user-guide)
+- [Quick Start](#Quick-Start)
   - [Installation](#installation)
     - [Clone the repository and navigate to the project directory](#clone-the-repository-and-navigate-to-the-project-directory)
-    - [Installation with poetry (option 1)](#installation-with-poetry-option-1)
-    - [Installation with pip (option 2)](#installation-with-pip-option-2)
+    - [Installation with pip (option 1)](#installation-with-pip-option-1)
+    - [Installation with poetry (option 2)](#installation-with-poetry-option-2)
   - [Configure API Keys](#configure-api-keys)
     - [Environment Variables](#environment-variables)
     - [Configuration Files](#configuration-files)
     - [Additional API Configurations](#additional-api-configurations)
   - [Basic Usage](#basic-usage)
+    - [Used as a Web App](#used-as-a-web-app)
     - [Used in Command Line](#used-in-command-line)
     - [Used as a Library](#used-as-a-library)
-    - [Used as a Web App](#used-as-a-web-app)
   - [Advanced Features](#advanced-features)
     - [Multimodality](#multimodality)
     - [Customized Prompts](#customized-prompts)
     - [Switch Between Models](#switch-between-models)
-    - [Switch Between Search Engine](#switch-between-search-engine)
 
 ## Installation
 
 ### Clone the repository and navigate to the project directory
 ```bash
-git clone https://github.com/Libr-AI/OpenFactVerification.git
+git clone  https://github.com/AADI-234/FactFusion.git
 cd OpenFactVerification
 ```
 
-### Installation with poetry (option 1)
-1. Install Poetry by following it [installation guideline](https://python-poetry.org/docs/).
-2. Install all dependencies by running:
-```bash
-poetry install
-```
-
-### Installation with pip (option 2)
+### Installation with pip (option 1)
 1. Create a Python environment at version 3.9 or newer and activate it.
 
 2. Navigate to the project directory and install the required packages:
 ```bash
 pip install -r requirements.txt
+```
+
+### Installation with poetry (option 2)
+1. Install Poetry by following it [installation guideline](https://python-poetry.org/docs/).
+2. Install all dependencies by running:
+```bash
+poetry install
 ```
 
 ## Configure API Keys
@@ -61,7 +60,7 @@ Specifically, the tool initialization loads API keys from environment variables 
 
 ### Environment Variables
 Example: Export essential api key to the environment
-```bash
+```cmd
 export SERPER_API_KEY=... # this is required in evidence retrieval if serper being used
 export OPENAI_API_KEY=... # this is required in all tasks
 export ANTHROPIC_API_KEY=... # this is required only if you want to replace openai with anthropic

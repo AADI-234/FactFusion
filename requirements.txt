@@ -1,4 +1,5 @@
 anthropic
+groq
 backoff
 bs4
 flask

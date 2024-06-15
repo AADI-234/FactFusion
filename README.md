@@ -18,7 +18,7 @@ FactFusion is designed to automate the process of verifying factual information.
     - [Installation with poetry (option 2)](#installation-with-poetry-option-2)
   - [Configure API Keys](#configure-api-keys)
     - [Environment Variables](#environment-variables)
-    - [Configuration Files](#configuration-files-(Required-if-Web-enivronment-is-used))
+    - [Configuration Files](#configuration-files(required-if-web-enivronment-is-used))
     - [Additional API Configurations](#additional-api-configurations)
   - [Basic Usage](#basic-usage)
     - [Used as a Web App](#used-as-a-web-app)
@@ -28,6 +28,7 @@ FactFusion is designed to automate the process of verifying factual information.
     - [Multimodality](#multimodality)
     - [Customized Prompts](#customized-prompts)
     - [Switch Between Models](#switch-between-models)
+  - [Highly Recommended](#highly-recommended)
 
 ## Installation
 
@@ -147,7 +148,7 @@ python webapp.py --api_config demo_data/api_config.yaml
 python -m factcheck --modal string --input "MBZUAI is the first AI university in the world"
 ```
 
-### Multimodality (NOT YET IMPLEMENTED (WORKKING ON IT))
+### Multimodality (NOT YET IMPLEMENTED, WORKKING ON IT)
 
 Different modalities (text, speech, image, and video) are unified in this tool by converting them into text, and then verified by the standard text fact verification pipeline.
 
@@ -209,3 +210,13 @@ Besides, when using local_openai models, please make sure to specify `LOCAL_API_
 
 You can get a serper key from https://serper.dev/
 You can get a serper key from https://console.groq.com/keys
+
+## Highly Recommended (GROQ TO OPENAI)
+
+
+Use gpt api for the best results. The results are way better than any other models
+- For configuration
+- Open folder factcheck in VS code
+- press ctrl+shift+F
+- search llama3-8b-8192
+- Replace this with gpt-4o only in 2 file webapp.py and at __init__.py

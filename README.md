@@ -18,7 +18,7 @@ FactFusion is designed to automate the process of verifying factual information.
     - [Installation with poetry (option 2)](#installation-with-poetry-option-2)
   - [Configure API Keys](#configure-api-keys)
     - [Environment Variables](#environment-variables)
-    - [Configuration Files](#configuration-files)
+    - [Configuration Files](#configuration-files-(Required-if-Web-enivronment-is-used))
     - [Additional API Configurations](#additional-api-configurations)
   - [Basic Usage](#basic-usage)
     - [Used as a Web App](#used-as-a-web-app)
@@ -67,18 +67,18 @@ set LOCAL_API_KEY=... # this is required only if you want to use local LLM
 set LOCAL_API_URL=... # this is required only if you want to use local LLM
 ```
 
-### Configuration Files  (Required if Web enivronment is used)
+### Configuration Files (Required if Web enivronment is used)
 
 Alternatively, we can store the api information in a YAML file with the same key names as the environment variables and pass the path to the yaml file as an argument to the `check_response` method.
 
-Example: Pass the path to the api configuration file  or Go to FactFusion->factcheck->config->api_config.yaml
+Example: 
+Go to FactFusion->factcheck->config->api_config.yaml then set the API keys OR
+Pass the path to the api configuration file  
 ```YAML
+GROQ_API_KEY:null
 SERPER_API_KEY: null
-
 OPENAI_API_KEY: null
-
 ANTHROPIC_API_KEY: null
-
 LOCAL_API_KEY: null
 LOCAL_API_URL: null
 ```
@@ -98,6 +98,7 @@ keys = [
     "SERPER_API_KEY",
     "OPENAI_API_KEY",
     "ANTHROPIC_API_KEY",
+    "GROQ_API_KEY",
     "LOCAL_API_KEY",
     "LOCAL_API_URL",
 ]
@@ -116,8 +117,8 @@ python -m factcheck --input "MBZUAI is the first AI university in the world"
 ### Used as a Library
 
 ```python
-from factcheck import FactCheck
 
+from factcheck import FactCheck
 factcheck_instance = FactCheck()
 
 # Example text
@@ -127,18 +128,18 @@ text = "Your text here"
 results = factcheck_instance.check_response(text)
 print(results)
 ```
+
 ### Used as a Web App
 
 ```bash
 python webapp.py --api_config demo_data/api_config.yaml
 ```
-
-<p align="center"><img src="../assets/web_input.png"/></p>
-<p align="center"><img src="../assets/web_result.png"/></p>
+<p align="center"><img src="../assets/online_screenshot.png"/></p>
+<p align="center"><img src="../assets/2ndpage.PNG"/></p>
 
 ## Advanced Features
 
-### Multimodality
+### Multimodality (NOT YET IMPLEMENTED (WORKKING ON IT))
 
 Different modalities (text, speech, image, and video) are unified in this tool by converting them into text, and then verified by the standard text fact verification pipeline.
 
@@ -170,17 +171,22 @@ python -m factcheck --input "MBZUAI is the first AI university in the world" --p
 
 ### Switch Between Models
 
-Currently, Loki supports models from OpenAI, Anthropic, and local-hosted models. To specify the model version used for fact checking, there are two arguments `--model` and `--client`.
+Currently, FactFusion supports models from OpenAI, Anthropic, and local-hosted models. To specify the model version used for fact checking, there are two arguments `--model` and `--client`.
 Please see `factcheck/utils/llmclient/__init__.py` for details.
 
 | Model     | --model        | --client     |
 |-----------|----------------|--------------|
+| Groq      | llama3-8b-8192 | None         |
 | OpenAI    | gpt-VERSION    | None         |
 | Anthropic | claude-VERSION | None         |
 | Local     | MODEL_NAME     | local_openai |
 
 
 ```bash
+
+# Groq
+python -m factcheck --modal string --input "MBZUAI is the first AI university in the world" --model llama3-8b-8192
+
 # OpenAI
 python -m factcheck --modal string --input "MBZUAI is the first AI university in the world" --model gpt-4-turbo
 
@@ -195,19 +201,8 @@ The prompt can be model-specific, especially if we ask the model to output a JSO
 
 Besides, when using local_openai models, please make sure to specify `LOCAL_API_KEY` and `LOCAL_API_URL`.
 
-### Switch Between Search Engine
-Currently google search and Serper are supported. You can switch between different search engines with the argument `--retriever`.
-
-
-```bash
-# Serper
-python -m factcheck --modal string --input "MBZUAI is the first AI university in the world"  --retriever serper
-
-# Google
-python -m factcheck --modal string --input "MBZUAI is the first AI university in the world"  --retriever google
-```
-
 You can get a serper key from https://serper.dev/
+You can get a serper key from https://console.groq.com/keys
 
 
 

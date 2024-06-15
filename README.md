@@ -4,9 +4,8 @@
   <br />
 </div>
 
-# FactFusion
 
-## Overview
+# Overview
 FactFusion is designed to automate the process of verifying factual information. It provides a comprehensive pipeline that breaks down long texts into individual claims, assesses their verification worthiness, generates evidence search queries, crawls for evidence, and ultimately verifies the claims. This tool is especially useful for everyday people, journalists, researchers, and anyone interested in ensuring the accuracy of information. 
 
 
@@ -40,16 +39,15 @@ cd OpenFactVerification
 
 ### Installation with pip (option 1)
 1. Create a Python environment at version 3.9 or newer and activate it.
-
 2. Navigate to the project directory and install the required packages:
-```bash
+```cmd
 pip install -r requirements.txt
 ```
 
 ### Installation with poetry (option 2)
 1. Install Poetry by following it [installation guideline](https://python-poetry.org/docs/).
 2. Install all dependencies by running:
-```bash
+```cmd
 poetry install
 ```
 
@@ -61,19 +59,19 @@ Specifically, the tool initialization loads API keys from environment variables 
 ### Environment Variables
 Example: Export essential api key to the environment
 ```cmd
-export SERPER_API_KEY=... # this is required in evidence retrieval if serper being used
-export OPENAI_API_KEY=... # this is required in all tasks
-export ANTHROPIC_API_KEY=... # this is required only if you want to replace openai with anthropic
-export LOCAL_API_KEY=... # this is required only if you want to use local LLM
-export LOCAL_API_URL=... # this is required only if you want to use local LLM
+set SERPER_API_KEY=... # this is required for all the task
+set GROQ_API_KEY=... # this is required for all the task 
+set OPENAI_API_KEY=... # this is required only if you want to replace groq with openai
+set ANTHROPIC_API_KEY=... # this is required only if you want to replace groq with anthropic
+set LOCAL_API_KEY=... # this is required only if you want to use local LLM
+set LOCAL_API_URL=... # this is required only if you want to use local LLM
 ```
 
-### Configuration Files
+### Configuration Files  (Required if Web enivronment is used)
 
 Alternatively, we can store the api information in a YAML file with the same key names as the environment variables and pass the path to the yaml file as an argument to the `check_response` method.
 
-Example: Pass the path to the api configuration file
-
+Example: Pass the path to the api configuration file  or Go to FactFusion->factcheck->config->api_config.yaml
 ```YAML
 SERPER_API_KEY: null
 
